@@ -169,7 +169,7 @@ def monthly_heatmap(returns: pd.Series) -> pd.DataFrame:
     if r.empty:
         return pd.DataFrame()
 
-    m = (1 + r).resample("M").prod() - 1
+    m = (1 + r).resample("ME").prod() - 1
     hm = pd.DataFrame({"ret": m})
     hm["Year"] = hm.index.year
     hm["Month"] = hm.index.month
